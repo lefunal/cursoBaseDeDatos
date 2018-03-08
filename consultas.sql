@@ -123,7 +123,7 @@ WHERE nombre LIKE '%i%';
 +--------+--------+------+-------------+
  */
 
-/* Los estudiantes con un nombres que sea 'Mari' seguido de alguna otra letra  (Maria, Mario)*/
+/* Los estudiantes con un nombres que sea 'Mari' seguido de algun otro caracter (Maria, Mario)*/
 SELECT * FROM estudiante
 WHERE nombre LIKE 'Mari_';
 
@@ -134,6 +134,13 @@ WHERE nombre LIKE 'Mari_';
 |      3 | Maria  |   22 |           3 |
 +--------+--------+------+-------------+
 */
+
+/*--------------------------------------------
+Para ver más operadores de Strings mirar:
+https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_char-length
+https://dev.mysql.com/doc/refman/5.7/en/string-comparison-functions.html#operator_like
+----------------------------------------------*/
+
 
 /* Los estudiantes con un codigo mayor a 2 y una edad menor a 22*/
 SELECT * FROM estudiante
@@ -224,7 +231,7 @@ SELECT * FROM estudiante, facultad;
 */
 
 /* los estudiantes con sus facultades respectivas */
-SELECT * FROM estudiante JOIN facultad 
+SELECT * FROM estudiante, facultad 
 WHERE estudiante.id_facultad = facultad.id_facultad;
 
 
