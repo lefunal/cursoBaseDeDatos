@@ -23,7 +23,8 @@
 */
 
 /* Todos los estudiantes */
-SELECT * FROM estudiante;
+SELECT * 
+FROM estudiante;
 
 /* => 
 +--------+--------+------+-------------+
@@ -39,7 +40,8 @@ SELECT * FROM estudiante;
 
 
 /* Solo los nombres y edades de los estudiantes */
-SELECT nombre, edad FROM estudiante;
+SELECT nombre, edad 
+FROM estudiante;
 
 /* => 
 +--------+------+
@@ -54,7 +56,8 @@ SELECT nombre, edad FROM estudiante;
 
 
 /* Los estudiantes con edad de 22 */
-SELECT * FROM estudiante
+SELECT * 
+FROM estudiante
 WHERE edad = 22;
 /* => 
 +--------+--------+------+-------------+
@@ -67,7 +70,8 @@ WHERE edad = 22;
 */
 
 /* Los estudiantes con una edad diferente a 22 */
-SELECT * FROM estudiante
+SELECT * 
+FROM estudiante
 WHERE NOT edad = 22;
 
 /* =>
@@ -82,10 +86,12 @@ WHERE NOT edad = 22;
 
 
 /* Los estudiantes con nombre 'Juan' */
-SELECT * FROM estudiante
+SELECT * 
+FROM estudiante
 WHERE nombre = 'Juan';
 
-SELECT * FROM estudiante
+SELECT * 
+FROM estudiante
 WHERE nombre LIKE 'Juan';
 /* =>
 
@@ -97,7 +103,8 @@ WHERE nombre LIKE 'Juan';
 */
 
 /* Los estudiantes con un nombre que comienza por 'J' */
-SELECT * FROM estudiante
+SELECT * 
+FROM estudiante
 WHERE nombre LIKE 'J%';
 
 /* =>
@@ -111,7 +118,8 @@ WHERE nombre LIKE 'J%';
 
 
 /* Los estudiantes con un nombres que tengan una 'i' */
-SELECT * FROM estudiante
+SELECT * 
+FROM estudiante
 WHERE nombre LIKE '%i%';
 
 /* =>
@@ -124,7 +132,8 @@ WHERE nombre LIKE '%i%';
  */
 
 /* Los estudiantes con un nombres que sea 'Mari' seguido de algun otro caracter (Maria, Mario)*/
-SELECT * FROM estudiante
+SELECT * 
+FROM estudiante
 WHERE nombre LIKE 'Mari_';
 
 /* =>
@@ -135,6 +144,75 @@ WHERE nombre LIKE 'Mari_';
 +--------+--------+------+-------------+
 */
 
+
+/* Los estudiantes con un nombre de longitud 4*/
+SELECT * 
+FROM estudiante
+WHERE LENGTH(nombre) = 4;
+/* =>
+
++--------+--------+------+-------------+
+| codigo | nombre | edad | id_facultad |
++--------+--------+------+-------------+
+|      1 | Juan   |   19 |           2 |
+|      4 | Jose   |   20 |           4 |
++--------+--------+------+-------------+
+ */
+
+/* La palabra estuidante: seguida del nombre del estudiante*/
+SELECT CONCAT('Estudiante: ', nombre) 
+FROM estudiante;
+
+/* =>
++--------------------------------+
+| CONCAT('Estudiante: ', nombre) |
++--------------------------------+
+| Estudiante: Juan               |
+| Estudiante: Daniel             |
+| Estudiante: Maria              |
+| Estudiante: Jose               |
++--------------------------------+
+*/
+
+/* El nombre de los estudiantes en minusculas*/
+SELECT LOWER(nombre)
+FROM estudiante;
+/*=>
+ +---------------+
+| LOWER(nombre) |
++---------------+
+| juan          |
+| daniel        |
+| maria         |
+| jose          |
++---------------+
+ */
+
+/* El nombre de los estudiantes en minusculas*/
+SELECT UPPER(nombre)
+FROM estudiante;
+/*=>
++---------------+
+| UPPER(nombre) |
++---------------+
+| JUAN          |
+| DANIEL        |
+| MARIA         |
+| JOSE          |
++---------------+
+*/
+
+/*El string sin espacios al comienzo ni al final*/
+SELECT TRIM(' nombre ');
+/*=>
++-------------------+
+| RTRIM(' nombre ') |
++-------------------+
+|  nombre           |
++-------------------+
+ */
+
+
 /*--------------------------------------------
 Para ver más operadores de Strings mirar:
 https://dev.mysql.com/doc/refman/5.7/en/string-functions.html#function_char-length
@@ -143,7 +221,8 @@ https://dev.mysql.com/doc/refman/5.7/en/string-comparison-functions.html#operato
 
 
 /* Los estudiantes con un codigo mayor a 2 y una edad menor a 22*/
-SELECT * FROM estudiante
+SELECT * 
+FROM estudiante
 WHERE codigo > 2 AND edad < 22;
 
 /* =>
@@ -156,7 +235,8 @@ WHERE codigo > 2 AND edad < 22;
 */
 
 /* Los estudiantes con un codigo mayor a 2 o una edad menor a 22*/
-SELECT * FROM estudiante
+SELECT * 
+FROM estudiante
 WHERE codigo > 2 OR edad < 22;
 
 /* =>
@@ -171,7 +251,8 @@ WHERE codigo > 2 OR edad < 22;
 */
 
 /* Los estudiantes pero con los atributos en ingles*/
-SELECT codigo as code, nombre as name, edad as age, id_facultad FROM estudiante;
+SELECT codigo as code, nombre as name, edad as age, id_facultad 
+FROM estudiante;
 /* =>
 
 +------+--------+------+-------------+
@@ -186,7 +267,8 @@ SELECT codigo as code, nombre as name, edad as age, id_facultad FROM estudiante;
 
 
 /* Las edades de los estudiantes sin duplicados*/
-SELECT DISTINCT edad FROM estudiante;
+SELECT DISTINCT edad 
+FROM estudiante;
 /* =>
 
 +------+
