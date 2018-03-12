@@ -281,3 +281,30 @@ FROM estudiante;
 */
 
 
+/* Los estudiantes que tengen un nombre nulo */
+SELECT * 
+FROM estudiante
+WHERE nombre IS NULL;
+/* =>
+
+Empty set (0.00 sec)
+*/
+
+
+/* Los estudiante que no tengan un nombre nulo */
+SELECT * 
+FROM estudiante
+WHERE nombre IS NOT NULL;
+
+/* =>
+
++------+--------+------+-------------+
+| code | name   | age  | id_facultad |
++------+--------+------+-------------+
+|    1 | Juan   |   19 |           2 |
+|    2 | Daniel |   22 |           2 |
+|    3 | Maria  |   22 |           3 |
+|    4 | Jose   |   20 |           4 |
++------+--------+------+-------------+
+*/
+
