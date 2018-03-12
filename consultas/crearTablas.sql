@@ -21,6 +21,17 @@
   4           Jose          20        4
   ...
 
+
+  Tabla profesor
+
+  cedula  |   nombre    |   salario  |   id_facultad
+  -------------------------------------------------
+  111         Jhon          2000        4
+  222         Pedro         3000        1
+  333         Elena         2500        1
+  ...
+
+
 */
 
 
@@ -57,12 +68,12 @@ DROP TABLE IF EXISTS estudiante;
 
 CREATE TABLE estudiante (
 	codigo INT(10) AUTO_INCREMENT,
-    nombre VARCHAR(50),
+	nombre VARCHAR(50),
     edad INT(10),
-	id_facultad INT(10),
+    id_facultad INT(10),
     
     CONSTRAINT pk PRIMARY KEY (codigo),
-    CONSTRAINT fk_facultad FOREIGN KEY (id_facultad) REFERENCES facultad(id_facultad)
+	CONSTRAINT fk_e_f FOREIGN KEY (id_facultad) REFERENCES facultad(id_facultad)
 );
 
 INSERT INTO estudiante(nombre, edad, id_facultad)
@@ -78,10 +89,30 @@ INSERT INTO estudiante(nombre, edad, id_facultad)
 VALUES ('Jose', 20, 4);
 
 
+DROP TABLE IF EXISTS profesor;
+
+CREATE TABLE profesor (
+	cedula INT(10),
+	nombre VARCHAR(50),
+    salario DECIMAL(10,2),
+    id_facultad INT(10),
+    
+    CONSTRAINT pk PRIMARY KEY (cedula),
+	CONSTRAINT fk_p_f FOREIGN KEY (id_facultad) REFERENCES facultad(id_facultad)
+);
+
+INSERT INTO profesor(cedula, nombre, salario, id_facultad)
+VALUES (111, 'Jhon', 2000, 4);
+
+INSERT INTO profesor(cedula, nombre, salario, id_facultad)
+VALUES (222, 'Pedro', 3000, 1);
+
+INSERT INTO profesor(cedula, nombre, salario, id_facultad)
+VALUES (333, 'Elena', 2500, 1);
+
 
 /*Habilitar FKs*/
 SET foreign_key_checks = 1;
-
 
 
 
