@@ -34,22 +34,23 @@
 
 */
 
-/*Agregar una a uno*/
+/*Agregar una facultad con id 1 y nombre Ingenieria*/
 INSERT INTO facultad(id_facultad, nombre)
 VALUES (1, 'Ingenieria');
 
-/*Agregar varios*/
+/*Agregar la facultad ingenieria y medicina*/
 INSERT INTO facultad(id_facultad, nombre)
 VALUES (1, 'Ingenieria'), (2, 'medicina');
 
 
 /*Agregar usando una consulta*/
+
 CREATE TABLE facultad2 (
 	id_facultad INT(10) AUTO_INCREMENT,
     nombre VARCHAR(50),
     CONSTRAINT pk PRIMARY KEY (id_facultad)
 );
-
+/*Agregar las facultades de facultad a facultad2*/
 INSERT INTO facultad2(id_facultad, nombre)
   SELECT id_facultad, nombre
   FROM facultad;
