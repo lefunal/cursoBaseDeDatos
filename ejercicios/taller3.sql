@@ -72,11 +72,12 @@ UNION
 /*11. Retornar todos los laptops y PCs con un precio mayor a 900*/
 /*Se uso -1 como un screen indefinido pero otra opcion mejor ubiera sido NULL*/
 (
-    SELECT PC.model, PC.speed, PC.ram, PC.hd, PC.price, -1 AS screen
+  SELECT PC.model, PC.speed, PC.ram, PC.hd, -1 AS screen, PC.price
 	FROM PC
-	WHERE price > 900
+	WHERE PC.price > 900
 )
 UNION (
-	SELECT *
+	SELECT Laptop.model, Laptop.speed, Laptop.ram, Laptop.hd, Laptop.screen, Laptop.price
 	FROM Laptop
+	WHERE Laptop.price > 900
 );
