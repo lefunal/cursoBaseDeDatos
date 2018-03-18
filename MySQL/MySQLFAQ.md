@@ -10,6 +10,11 @@
 
 ## [Instalacion en Ubuntu Linux](./linuxInstall.md)
 
+---
+
+## [Importar una base de datos MySQL Dump](./dumpImport/dumpImport.md)
+
+
 
 
 
