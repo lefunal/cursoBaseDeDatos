@@ -12,7 +12,7 @@
 
 ---
 
-## [Importar una base de datos MySQL Dump](./dumpImport/dumpImport.md)
+## [Importar una base de datos con MySQL Dump](./dumpImport/dumpImport.md)
 
 
 
