@@ -2,7 +2,7 @@
 
 ## Descargar instalador
 
-[Descragas MySQL 5.7](https://dev.mysql.com/downloads/windows/installer/5.7.html)
+[Descargas MySQL 5.7](https://dev.mysql.com/downloads/windows/installer/5.7.html)
 El que dice: (mysql-installer-community-5.7.21.0.msi)
 
 ![alt text](./mysqlDownloadPage.png "Img")
@@ -24,6 +24,8 @@ En general se deben escoger los valores por defecto que ofrece el instalador, el
 ![alt text](./instalador6.png "Img")
 ![alt text](./instalador7.png "Img")
 ![alt text](./instalador8.png "Img")
+
+## Ojo la clave que se solicita en esta pantalla se va ha pedir cada vez que usemos MySQL
 ![alt text](./instalador9.png "Img")
 ![alt text](./instalador10.png "Img")
 ![alt text](./instalador11.png "Img")
