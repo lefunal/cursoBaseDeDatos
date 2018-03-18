@@ -1,4 +1,4 @@
-# Workbench en Windows
+# MySQL Workbench en Windows
 
 ![alt text](./workbench1.png "Img")
 
