@@ -1,5 +1,6 @@
 # Documentacion RMySQL
 # https://cran.r-project.org/web/packages/RMySQL/RMySQL.pdf
+# https://github.com/r-dbi/RMySQL
 
 #install.packages("RMySQL")
 
