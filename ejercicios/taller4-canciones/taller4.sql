@@ -37,7 +37,7 @@ CREATE TABLE reconocimiento (
 CREATE VIEW canciones_rock_despues_de_2010 AS
 SELECT * 
 FROM cancion 
-WHERE cancion.fecha_composicion >= DATE('2010-01-01'); 
+WHERE cancion.fecha_composicion >= DATE('2010-12-31'); 
 
 
 /*
