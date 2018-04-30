@@ -5,7 +5,7 @@ SHOW TRIGGERS;
 
 
 /*
- Creat una tabla como historial, solo para ejemplo
+ Crear una tabla como historial, solo para ejemplo
  */
 CREATE TABLE facultad_historial (
     id INT AUTO_INCREMENT,
@@ -14,6 +14,14 @@ CREATE TABLE facultad_historial (
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
+
+/* Tabla con estadisticas */
+CREATE TABLE estadisticas_facultad(
+	id_facultad INT,
+    numero_profesores INT,
+    PRIMARY KEY (id_facultad)
+);
+
 
 /* Agregar en facultad_historial despues de que se agregue en facultad */
 
@@ -107,5 +115,37 @@ WHERE id_facultad = 1;
 
 COMMIT;
 DROP TRIGGER tr_error;
+
+
+/* Mantener consistente la tabla estadisticas_facultad */
+
+DELIMITER $$
+
+CREATE TRIGGER tr_estadisticas AFTER INSERT ON profesor
+FOR EACH ROW BEGIN
+  
+  DECLARE filas_modificadas INT;
+   
+  UPDATE estadisticas_facultad 
+  SET numero_profesores = (numero_profesores + 1)
+  WHERE id_facultad = NEW.id_facultad; 
+
+  SELECT ROW_COUNT() INTO filas_modificadas;
+
+  IF (filas_modificadas = 0) THEN
+    INSERT INTO estadisticas_facultad(id_facultad, numero_profesores) 
+    VALUES (NEW.id_facultad, 1); 
+  END IF;
+
+
+END$$
+
+DELIMITER ;
+
+INSERT INTO profesor(cedula, nombre, salario, id_facultad)
+VALUES (145, 'Jhon', 2000, 4);
+
+
+DROP TRIGGER tr_estadisticas;
 
 
