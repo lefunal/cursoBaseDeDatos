@@ -1,6 +1,6 @@
 # Wiki para el curso de Bases de Datos
 
-## [MySQL FAQ](./MySQL/MySQLFAQ.md) 
+## [MySQL FAQ](./doc/MySQL/MySQLFAQ.md) 
 
-## [R FAQ](./Rdoc/R.md) 
+## [R FAQ](./doc/Rdoc/R.md) 
 
